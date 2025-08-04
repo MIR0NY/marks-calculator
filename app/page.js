@@ -8,7 +8,6 @@ import "@/app/globals.css"
 import Footer from "@/components/Footer";
 
 export default function Home() {
-  let a = 16
   const [CT, setCT] = useState(0);
   const [MT, setMT] = useState(0); // This will be calculated from raw MT Input
   const [rawMTInput, setRawMTInput] = useState(0); // New state to hold the raw MT Input value
@@ -48,7 +47,7 @@ export default function Home() {
             ref={ctInputRef}
             onChange={e => { setCT(Math.ceil(parseFloat(e.target.value) || 0)); }}
             type="number"
-            className={`w-${a} text-center`}
+            className={`w-16 text-center`}
             id="ct"
             value={CT === 0 ? '' : CT} // Display empty string for 0 to make it clean
           />
@@ -59,7 +58,7 @@ export default function Home() {
           <Input
             onChange={handleMTChange}
             type="number"
-            className={`w-${a} text-center`}
+            className={`w-16 text-center`}
             id="MT"
             value={rawMTInput === 0 ? '' : rawMTInput} // Use rawMTInput for the Input field
           />
@@ -70,7 +69,7 @@ export default function Home() {
           <Input
             onChange={e => { setCQ(parseFloat(e.target.value) || 0); }}
             type="number"
-            className={`w-${a} text-center`}
+            className={`w-16 text-center`}
             id="CQ"
             value={CQ === 0 ? '' : CQ}
           />
@@ -81,7 +80,7 @@ export default function Home() {
           <Input
             onChange={e => { setMCQ(parseFloat(e.target.value) || 0); }}
             type="number"
-            className={`w-${a} text-center`}
+            className={`w-16 text-center`}
             id="MCQ"
             value={MCQ === 0 ? '' : MCQ}
           />
@@ -92,7 +91,7 @@ export default function Home() {
           <Input
             onChange={e => { setPrac(parseFloat(e.target.value) || 0); }}
             type="number"
-            className={`w-${a} text-center`}
+            className={`w-16 text-center`}
             id="Prac."
             value={Prac === 0 ? '' : Prac}
           />
