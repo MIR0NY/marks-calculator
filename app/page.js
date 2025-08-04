@@ -2,12 +2,16 @@
 import { useState, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 
 import "@/app/globals.css"
 import Footer from "@/components/Footer";
+import { Switch } from "@/components/ui/switch";
 
 export default function Home() {
+    
+
   const [CT, setCT] = useState(0);
   const [MT, setMT] = useState(0); // This will be calculated from raw MT Input
   const [rawMTInput, setRawMTInput] = useState(0); // New state to hold the raw MT Input value
@@ -36,9 +40,23 @@ export default function Home() {
       ctInputRef.current.focus();
     }
   };
+
+
+const [is50, setIs50] = useState(false)
+
   return (
     <div className=" w-[100vw] bg-background flex flex-col items-center">
       <h1 className="text-2xl my-5">Half Yearly Number Calculator</h1>
+
+
+<div className="my-5">
+          <Button
+          variant={"outline"}
+            onClick={e=>(setIs50(!is50))}
+          >
+            Full Marks: {is50 ? 50:100}
+          </Button>
+</div>
 
       <div className="main flex flex-wrap gap-2 w-90% mx-auto">
         <div className="flex flex-col items-center justify-center">
@@ -105,7 +123,7 @@ export default function Home() {
       <div className="flex gap-5 w-full justify-center">
         <div className={` rounded-md gap-2 text-lg p flex flex-col justify-center items-center `}>
           <label>MT 2/3</label>
-          <div className="border px-5 rounded-lg py-1 ">{MT}</div>
+          <div className="border px-5 rounded-lg py-1 ">{(is50) ? (MT * 0.5) : MT}</div>
         </div>
 
         <div className={`rounded-md gap-2 text-lg p flex flex-col justify-center items-center `}>
@@ -121,7 +139,11 @@ export default function Home() {
 
         <div className={` rounded-md gap-2 text-lg p flex flex-col justify-center items-center `}>
           <label>G.TOTAL</label>
-          <div className="border px-5 rounded-lg py-1">{Math.ceil(CT + MT + (CQ + MCQ + Prac) * 0.7)}</div>
+          <div className="border px-5 rounded-lg py-1">
+
+            { (is50) ? (Math.ceil((CT * 0.5) + (MT * 0.5) + (CQ + MCQ + Prac) * 0.7)) : (Math.ceil(CT + MT + (CQ + MCQ + Prac) * 0.7))}
+            
+            </div>
         </div>
       </div>
 
