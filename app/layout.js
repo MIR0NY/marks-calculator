@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ModeToggle } from "@/components/toggle";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,11 +36,7 @@ export default function RootLayout({ children }) {
             </div>
           </div>
           {children}
-          <div className="absolute bottom-0 w-full">
-            <p className="text-center w-full">
-            <span>Developed By: </span><strong>Md. Mafizul Islam Rony</strong>
-            </p>
-          </div>
+        
         </ThemeProvider>
       </body>
     </html>

@@ -1,10 +1,11 @@
 "use client"
 import { useState, useRef } from "react";
-import { Input } from "@/components/ui/Input";
+import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
 import { Button } from "@/components/ui/button";
 
 import "@/app/globals.css"
+import Footer from "@/components/Footer";
 
 export default function Home() {
   let a = 16
@@ -37,7 +38,7 @@ export default function Home() {
     }
   };
   return (
-    <div className="w-[100vw] bg-background flex flex-col items-center">
+    <div className=" w-[100vw] bg-background flex flex-col items-center">
       <h1 className="text-2xl my-5">Half Yearly Number Calculator</h1>
 
       <div className="main flex flex-wrap gap-2 w-90% mx-auto">
@@ -126,6 +127,7 @@ export default function Home() {
       </div>
 
       <Button onClick={handleReset} className="mt-10">Reset Calculator</Button>
+      <Footer/>
     </div>
   );
 }
